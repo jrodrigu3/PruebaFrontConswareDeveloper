@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="t-10 col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
+    <form class="forms-sample" [formGroup]="formGroupPersona">
+      <div class="mb-3">
+        <label class="form-label">Nombres</label><input type="text" class="form-control" formControlName="usuario" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apellido</label><input type="text" class="form-control" formControlName="apellido" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">numeroIdentificacion</label><input type="text" class="form-control"
+          formControlName="numeroIdentificacion" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">email</label><input type="text" class="form-control" formControlName="email" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">tipoIdentificacion</label><input type="text" class="form-control"
+          formControlName="tipoIdentificacion" />
+      </div>
+      <button [disabled]="!formGroupPersona.valid" type="button" (click)="guardarData(formGroupPersona.value)"
+        class="btn btn-primary">
+        {{textoBoton}}</button>
+    </form>
+    <br>
+  </div>
+</div>
+<div class="container col-xl-6 col-lg-6 col-md-5 col-sm-12 col-12 text-center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Numero Identificacio</th>
+        <th>Email</th>
+        <th>Tipo Identificación</th>
+        <th>Fecha creacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataFormulario">
+        <td>{{item?.nombre}}</td>
+        <td>{{item?.apellido}}</td>
+        <td>{{item?.numeroIdentificacion}}</td>
+        <td>{{item?.email}}</td>
+        <td>{{item?.tipoIdentificacion}}</td>
+        <td>{{item?.fechaCreacion}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="editar(item.idPlato)">Editar</button>
+          <button type="button" class="btn btn-danger" (click)="eliminar(item.idPlato)">Eliminar</button>
+      </tr>
+    </tbody>
+  </table>
+</div>

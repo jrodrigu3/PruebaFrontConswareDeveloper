@@ -12,8 +12,8 @@ export class ServiciosService {
   constructor(private _http: HttpClient) { }
 
 
-  public guardarPlato(plato: any): Observable<any> {
-    return this._http.post( `${this.rutaServicios}platos`, plato);
+  public guardarPersona(Persona: any): Observable<any> {
+    return this._http.post( `${this.rutaServicios}Personas`, Persona);
   }
 
 }
